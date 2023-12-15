@@ -1,447 +1,214 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta  http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0" />
-	<link rel="stylesheet" type="text/css" href="webpage/bootstrap.min.css"/>
-    <script language="javascript" src="webpage/jquery.min.js"></script>
-	<script language="javascript" src="webpage/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="webpage/cssReset.css"/>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-	<title>Dejun Xu's Homepage</title>
-	<meta name="description" content="Dejun Xu's Homepage - NJU ESE">
-	<meta name="keywords" content="Dejun Xu, NJU">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167316452-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-167316452-1');
-    </script>  
+    <title>软件工程实践大作业</title>
+    <link rel="icon" href="./images/logo.png">
     <style>
-        ul.no-bullets {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            background-color: #460099;
+            color: #fff;
+            padding: 10px 0;
+            margin: 0;
+            text-align: center;
+        }
+        #student {
+            margin: 20px 0;
+            font-size: 20px;
+            text-align: center;
+        }
+        #studentName {
+            display: inline-block;
+            width: 200px; 
+            height: 30px; 
+            padding: 5px;  
+            border: none;  
+            border-radius: 5px;  
+            font-size: 16px;  
+        }
+
+        #searchBox {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            padding: 20px;
+        }
+        #searchStudent {
+            background-color: #007BFF;  
+            color: #fff;  
+            border: none;  
+            border-radius: 5px;  
+            padding: 5px 10px;  
+            font-size: 16px;  
+            cursor: pointer;  
+        }
+
+        #searchStudent:hover {
+            background-color: #0056b3;  
+        }
+        #studentName, #searchButton {
+            display: inline-block;
+        }
+        button {
+            display: block;
+            width: 200px;
+            height: 40px;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #searchButton {
+            width: 90px;  
+            height: 30px;  
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 10px;
+            text-align: center; 
+            vertical-align: middle; 
+        }
+        th {
+            background-color: #460099;
+            color: #fff;
+            text-align: center; 
+            vertical-align: middle; 
+        }
+        img {
+            display: none;
+            margin: 10px auto;
+            border-radius: 50%;
+
         }
     </style>
-<link rel="icon" href="./images/logo.png">
 </head>
-
 <body>
-    <style type='text/css'>
-        body{
-            font-family: Georgia, "Simsum";
-            font-size:15.5px;
-        }
-        /*
-            div.content:
-                provide the content div in the middle
-        */
-        body div.content{
-            /*width:1280px;*/
-            /* width:905px; */
-            width:60%;
-            margin:0 auto;
-            line-height:25px;
-            min-width: 700px;
-        }
-        /*
-            header wrapper
-        */
-        body div.header{
-            background-color:#2196F3;
-        }
-        body div.header > div.content{
-            padding:15px;
-        }
-        div.footer{
-            padding:32px 0px 28px 10px;
-            /* padding:40px, 100px, 10px, 0; */
-        }
-        /*
-            utils css
-        */
-        div.white-text{
-            color:white;
-        }
-        div.content > div.title{
-            padding:16px 0 26px 0;
-            /* border-top:1px silver solid; */
-            margin-top:0px;
-            font-size:1.4em;
-            font-weight:bold;
-            line-height:1px;
-        }
-        body a{
-            color:#08306b;
-            /* #004C99; */
-            text-decoration:none;
-        }
-        div.content ul{
-            list-style: square outside none;
-            padding-left:20px;
-        }
-        div.content ol{
-            list-style: square outside none;
-            padding-left:20px;
-        }
-        div.content li{
-            line-height:24px;
-            padding-bottom:2px;
-        }
-        div.content div.float-right{
-            float:right;
-        }
-    </style>
-
-    <style>
-        hr.new {
-        border-top: 1.3px silver solid;
-        /* padding-top:10px; */
-        }
-    </style>
-
-    </style>
-    <!-- publications -->
-    <style type="text/css">
-        div.publications > ol > li{
-            padding-bottom: 12px;
-        }
-    </style>
-
-    <!-- css for bio -->
-    <style type="text/css">
-        div.bio > div.left{
-            float:left;
-            width:250px;
-        }
-        div.bio > div.left > img.me{
-            /* max-height:260px; */
-            margin:10px;
-            /* max-width:230px; */
-            margin-top:10px;
-            margin-left:30px;
-        }
-
-        div.bio > div.right{
-            margin:30px 0 0 400px;
-            min-height:260px;
-            line-height:28px;
-        }
-        div.bio > div.right > div.line.name{
-            padding:30px 0;
-            line-height:40px;
-        }
-        div.bio > div.right > div.name > span.name, div.bio > div.right > div.name > span.chineseName{
-            font-size:1.7em;
-            font-weight:bold;
-        }
-    </style>
-
-    <div class="content bio">
-        <div class="left">
-            <img class='me' src="./images/image.jpg"></img><br/>
-        </div>
-        <div class="right">
-            <div class="line name">
-                <span class="name">Dejun Xu</span>
-                <span class="chineseName">(徐德军)</span>
-            </div>
-            <div class="affliation">
-                <p> 南京大学 硕士研究生</p>
-                <p> Tenure-track Assistant Professor, Ph.D. Advisor</p>
-                <a href="http://epcc.sjtu.edu.cn/" target="_blank">Emerging Parallel Computing Center (EPCC)</a></br>
-                <a href="https://ese.nju.edu.cn/" target="_blank">School of Integrated Circuits</a></br>
-                <a href="https://www.nju.edu.cn/" target="_blank">Nanjing University</a></br>
-                <p>  </p>
-                <p>Email: xudejun@smail.nju.edu.cn</p>
-                <p>Office: 3rd floor, Building 11, Science Park, Nanjing University </p>
-            </div>  
-        </div>
-        <hr class="new">
+    <h2>软件工程实践大作业——课堂点名软件</h2>
+    <button onclick="callName()">点名</button>
+    <button onclick="markAttendance(currentStudent, true)">出席</button>
+    <button onclick="markAttendance(currentStudent, false)">缺席</button>
+    <button onclick="exportToXls()">导出</button>
+    <div id="searchBox">
+        <input id="studentName" type="text" placeholder="请输入学生姓名">
+        <button id="searchButton" onclick="searchStudent()">搜索学生</button>
     </div>
-
-    <!-- quick link -->
-    <style type="text/css">
-        div.quickLink{
-            font-size:1.2em;
-            min-height:70px;
-        }
-        div.quickLink > .block{
-            display:block;
-            float:left;
-            padding:10px 0px;
-            text-align:center;
-            /* border:1px silver solid; */
-            /* border-radius:5px; */
-            /* box-shadow:2px 2px 1px silver; */
-            width:140px;
-            margin-right:30px;
-            margin-left:20px;
-            /* margin-top:20px; */
-            cursor:pointer;
-            border-top:1px silver solid;
-        }
-    </style>
-
-    <!-- <div class="content quickLink">
-        <a class="block" href="#biography">Biography</a>
-        <a class="block" href="#honors">Honors</a>
-        <a class="block" href="#publications">Publications</a>
-        <a class="block" href="#teaching">Talks</a>
-    </div>    -->
+    <p id="student"></p>
+    <table id="attendance">
+        <tr>
+            <th>学号</th>
+            <th>学生姓名</th>
+            <th>出勤情况</th>
+        </tr>
+    <img id="photo" src="" alt="学生照片" width="200" height="200" style="display: none; margin: 10px auto;">
     
-    <div class="content intro" name='biography'>
-        <a name="biography"></a>
-        <div class='title'>Short Bio</div>
-        Jieru Zhao joined <a href="http://www.cs.sjtu.edu.cn/" target="_blank">the Department of Computer Science and Engineering</a>,
-        <a href="https://www.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University (SJTU)</a> as an Assistant Professor in December, 2020.
-        Prior to that, she received the Ph.D. degree in Electronic and Computer Engineering from <a href="https://www.ust.hk/" target="_blank">the Hong Kong University of Science and Technology</a> in 2020, 
-        and the B.S. degree from <a href="https://www.nju.edu.cn/en/main.psp" target="_blank">Nanjing Univerity</a> in 2015. She worked as a research scientist intern at DAMO academy (Aug-Nov 2020).
-        Her research interests lie in the area of computer systems, specifically focusing on automatic design tools, hardware-software co-design and energy-efficient computing systems. 
-        She has received one best paper award (ICCAD'17) and three best paper nominations (DATE'22, SC'21, CASES'18) in top conferences. 
-        Her current research projects aim at improving the programmability of customizable computing for software engineers from cloud to edge devices.<br/>
-        <hr class="new">
-    </div>
+    </table>
 
-    <div class="content opening" name='opening'>
-        <a name="opening"></a>
-        <div class='title'>Openings</div>
-        <p>I am looking for self-motivated PhD, Master and Undergraduate students. Please send me an email with your CV if you are interested in compiler optimization, HW-SW co-design, computer systems, computer architecture, and machine learning for EDA. 
-        </p>
-        <p>本团队长期招收博士生、硕士生和对科研感兴趣的本科生，如果你对AI编译及系统、计算机体系结构、FPGA、EDA等方向感兴趣，欢迎发邮件与我们交流。
-        </p>
-        <b>目前拟招收2024级博士生和硕士生， 请感兴趣的同学发送简历至我邮箱，谢谢。</b>
-        <hr class="new">
-    </div>
+    <script>
+        var date =new Date();
+        var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
+        var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
+        var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
+         "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
+        var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "学生4.jpg", "学生5.jpg"];
+        var photo = document.getElementById("photo");
+        var current = 0;
+        var currentStudent = "";
 
-    <div class="content teaching" name='Teaching'>
-        <div class="title">Teaching</div>
-        <ul>
-            <li>The Principles of Compilers, 2021-2022 Spring, 2022-2023 Spring.</li>
-            <li>Principles and Practice of Problem Solving (in English), 2021-2022 Autumn, 2022-2023 Autumn.</li>
-        </ul>
-        <hr class="new">
-    </div>
+        // 初始化出勤表格
+        var table = document.getElementById("attendance");
+        for (var i = 0; i < students.length; i++) {
+            var row = table.insertRow(-1);
+            row.insertCell(0).innerHTML = studentIds[i];
+            row.insertCell(1).innerHTML = students[i];
+            row.insertCell(2).innerHTML = "未点名";
+        }
 
-    <div class="content service" name='Academic Services'>
-        <div class="title">Professional Services</div>
-        <ul>
-            <li>Program Committee for DAC 2022/2023, ICCAD 2023, FPT 2021/2022</li>
-            <li>Co-chair for Ph.D. Forum at FPT 2022</li>
-            <li>Co-chair for SIGDA Student Research Forum at ASP-DAC 2022, 2023 (SRF@ASP-DAC 2022, 2023)</li>
-            <li>Judge for EDAthon 2019 contest [<a href="https://sites.google.com/view/ceda-hk/edathon-2019" target="_blank">link</a>] and EDAthon 2018 contest [<a href="https://sites.google.com/view/ceda-hk/edathon-2018" target="_blank">link</a>].</li>
-            <li>Reviewer for top conferences in the areas of EDA and FPGA, including DAC, ICCAD, DATE, ICCD, FPGA, FCCM, FPL, etc.</li>
-            <li>Reviewer for top journals including TCAD, TVLSI, TRETS, TODAES, Integration VLSI, etc.</li>
-        </ul>
-        <hr class="new">
-    </div>    
-    
-    <div class="content honors" name='honors'>
-        <a name="honors"></a>
-        <div class="title">Honors and Awards</div>
-        <ul>
-            <li><b><font color=#DC143C>DATE Best Paper Nomination</font></b> in 2022</li>
-            <li><b><font color=#DC143C>SC Best Paper Finalist</font></b> in 2021</li>
-            <li>HKUST SENG Academic Award for 2018-2019 (School of Engineering, Top Research Post-Graduate (Rpg) Award)</li>
-            <li><b><font color=#DC143C>CASES Best Paper Nomination</font></b> in 2018 (9 out of 270 submissions)</li>
-            <li><a href="https://ieee-ceda.org/awards/william-j-mccalla-iccad-best-paper-award" target="_blank"><b><font color=#DC143C>William J. McCalla ICCAD Best Paper Award</font></b></a> in 2017 (2 out of 399 submissions) [<a href="https://www.ece.ust.hk/news/paper-ece-graduate-students-jieru-zhao-and-liang-feng-supervised-prof-wei-zhang-won" target="_blank">HKUST-ECE News</a>] </li>
-            <li>Postgraduate Studentship for 2019-2020 (HKUST)</li>
-            <li><a href="https://cerg1.ugc.edu.hk/hkpfs/index.html" target="_blank"><b><font color=#DC143C>Hong Kong Ph.D. Fellowship</font></b></a> from 2015 to 2019 (Top 3% among more than 4000 applications)</li>
-            <li>Outstanding Graduate of Nanjing University in 2015</li>
-            <li>Canadian Globalink Research Internship Award in 2014</li>
-            <li>National Scholarship (Top 2%) in 2013</li>
-            <li>Outstanding Student of Nanjing University (Top 5%) in 2012, 2013</li>
-        </ul>
-        <hr class="new">
-    </div>
+        //导出出勤表
+        function exportToXls() {
+            // 创建一个CSV字符串
+            var csv = '学号，姓名，出勤情况\n';
+            for (var i = 1; i < table.rows.length; i++) {
+                csv += table.rows[i].cells[0].innerHTML + ' ' + table.rows[i].cells[1].innerHTML + ' ' +table.rows[i].cells[2].innerHTML + '\n';
+            }
+            // 创建一个Blob对象
+            var blob = new Blob([csv], {type: 'data:application/vnd.ms-excel'});
+            // 创建一个可以下载的URL
+            var url = URL.createObjectURL(blob);
+            // 创建一个隐藏的下载链接
+            var link = document.createElement("a");
+            link.href = url;
+            // 获取当前日期
+            link.download = "出勤记录-" + dateString + ".xls";
+            link.style.display = "none";
+            document.body.appendChild(link);
+            // 触发下载
+            link.click();
+            // 移除下载链接w
+            document.body.removeChild(link);
+        }
 
-    
-    <div class="content group" name='group'>
-        <a name="Research Group"></a>
-        <div class='title'>Research Group</div>
-        <b>Graduate Students</b>
-        <ul>    
-        <li> Weichuang Zhang (Ph.D. 2021) </li>
-        <li> Guangda Liu (Ph.D. 2022) </li>
-        <li> Guan Shen (M.S. 2021) </li>
-        <li> Mingzhe Gao (M.S. 2022) </li>
-        <li> Pai Zeng (M.S. 2022) </li>
-        <li> Chenqi Zhang (M.S. 2023) </li>
-        <li> Yufei Shangguan (M.S. 2023) </li>
-        </ul>
-        <b>Research Assistants</b>
-        <ul>
-        <li> Bohan Cao (Undergraduate, 2021) </li>
-        <li> Yibo Liu (Undergraduate, 2021) </li>
-        <li> Siyuan Yang (Undergraduate, 2021) </li>
-        <li> Sikuang Zhou (Undergraduate, 2021) </li>
-        </ul>
-        <b>Prior Undergraduate Students</b>
-        <ul>
-        <li> Jiawen Chen (Undergraduate, 2020) </li>
-        <li> Haoran Jin (Undergraduate, 2019). Placement: Ph.D. in CSE at University of Michigan</li>
-        <li> Kun Su (Undergraduate, 2019). Placement: M.S. in microelectronics at SJTU </li>
-        <li> Bowen Chen (Undergraduate, 2019) </li>       
-        </ul>        
-        <hr class="new">
-    </div>   
+        function callName() {
+            if (current >= students.length) {
+                current = 0;
+            }
+            currentStudent = students[current];
+            document.getElementById("student").innerHTML = currentStudent;
+            current = current +1;
+            photo.src = photos[current - 1];
+            photo.style.display = "block";
+            var utterance = new SpeechSynthesisUtterance(currentStudent);
+            window.speechSynthesis.speak(utterance);
+        }
 
-    <div class="content publications" name='publications'>
-        <a name="publications"></a>
-        <div class="title">Publications</div>
-        <ol>
-            <li>
-                <b><font color=#4682B4>[DAC 2023]</font></b> <b><font color=#08306b>MARS: Exploiting Multi-Level Parallelism for DNN Workloads on Adaptive Multi-Accelerator Systems</font></b> 
-                <br>Guan Shen, <b>Jieru Zhao</b>, Zeke Wang, Zhe Lin, Wenchao Ding, Chentao Wu, Quan Chen and Minyi Guo,
-                <br> in <i> the 60th Design Automation Conference </i>, 2023. To appear.
-            </li>             
-            <li>
-                <b><font color=#4682B4>[DAC 2023]</font></b> <b><font color=#08306b>SpMMPlu: A Compiler Plug-in with Sparse IR for Efficient Sparse Matrix Multiplication</font></b> 
-                <br>Tao Yang, Yiyuan Zhou, Qidong Tang, Feng Xu, Hui Ma, <b>Jieru Zhao</b> and Li Jiang,
-                <br> in <i> the 60th Design Automation Conference </i>, 2023. To appear.
-            </li>
-            <li>
-                <b><font color=#4682B4>[ICS 2023]</font></b> <b><font color=#08306b>Preference-Aware Co-location Scheduling on Heterogeneous NUMA Architectures To Improve Resource Utilization</font></b> 
-                <br>Pu Pang, Yaoxuan Li, Bo Liu, Quan Chen, Zhou Yu, Zhibin Yu, Deze Zeng, Jingwen Leng, <b>Jieru Zhao</b> and Minyi Guo,
-                <br> in <i> the ACM International Conference on Supercomputing</i>, 2023. To appear.
-            </li>             
-            <li>
-                <b><font color=#4682B4>[HotOS 2023]</font></b> <b><font color=#08306b>Skadi: Building a Distributed Runtime for Data Systems in Disaggregated Data Centers</font></b> 
-                <br>Cunchen Hu, Chenxi Wang, Sa Wang, Ninghui Sun, Yungang Bao, <b>Jieru Zhao</b>, Sanidhya Kashyap, Pengfei Zuo, Xusheng Chen, Liangliang Xu, Qin Zhang, Hao Feng and Yizhou Shan,
-                <br> in <i> the 19th Workshop on Hot Topics in Operating Systems </i>, 2023. To appear.
-            </li> 
-            <li>
-                <b><font color=#4682B4>[ICRA 2023]</font></b> <b><font color=#08306b>FlowMap: Path Generation for Automated Vehicles in Open Space Using Traffic Flow</font></b> 
-                <br>Wenchao Ding, <b>Jieru Zhao</b>, Yubin Chu, Haihui Huang, Tong Qin, Chunjing Xu, Yuxiang Guan and Zhongxue Gan,
-                <br> in <i> IEEE International Conference on Robotics and Automation </i>, 2023. To appear.
-            </li> 
-            <li>
-                <b><font color=#4682B4>[SoCC 2022]</font></b> <b><font color=#08306b>Characterizing and Orchestrating VM Reservation in Geo-distributed Clouds to Improve the Resource Efficiency</font></b> 
-                <br>Jiuchen Shi, Kaihua Fu, Quan Chen, Changpeng Yang, Pengfei Huang, Mosong Zhou, <b>Jieru Zhao</b>, Chen Chen, Minyi Guo,
-                <br> in <i> Symposium on Cloud Computing</i>, 2022.
-            </li>
-            <li>
-                <b><font color=#4682B4>[DAC 2022]</font></b> <b><font color=#08306b>SALO: an Efficient Spatial Accelerator Enabling Hybrid Sparse Attention Mechanisms for Long Sequences</font></b> 
-                <br>Guan Shen, <b>Jieru Zhao</b>, Quan Chen, Jingwen Leng, Chao Li and Minyi Guo,
-                <br> in <i> the 59th Design Automation Conference </i>, 2022. 
-            </li> 
-            <li>
-                <b><font color=#4682B4>[DATE 2022]</font></b> <b><font color=#08306b>PowerGear: Early-Stage Power Estimation in FPGA HLS via Heterogeneous Edge-Centric GNNs</font></b> 
-                <br>Zhe Lin, Zike Yuan, <b>Jieru Zhao</b>, Wei Zhang, Hui Wang and Yonghong Tian,
-                <br> in <i>IEEE Design, Automation and Test in Europe Conference and Exhibition</i>, 2022. 
-                <br><b><font color=#DC143C>Best Paper Nomination</font></b>
-            </li> 
-            <li>
-                <b><font color=#4682B4>[IPDPS 2022]</font></b> <b><font color=#08306b>CSC: Collaborative System Configuration for I/O-Intensive Applications in Multi-Tenant Clouds</font></b> 
-                <br>Haowei Huang, Pu Pang, Quan Chen, <b>Jieru Zhao</b>, Wenli Zheng, Minyi Guo,
-                <br> in <i>International Parallel and Distributed Processing Symposium</i>, 2022. 
-            </li>            
-            <li> 
-                <b><font color=#4682B4>[ICCD 2021]</font></b> <b><font color=#08306b>Exploiting Intra-SM Parallelism in GPUs via Persistent and Elastic Blocks</font></b>  
-                <br>Han Zhao, Weihao Cui, Quan Chen, <b>Jieru Zhao</b>, Jingwen Leng, Minyi Guo,
-                <br> in <i>The 39th IEEE International Conference on Computer Design </i>, 2021. 
-            </li> 
-            <li> 
-                <b><font color=#4682B4>[SC 2021]</font></b> <b><font color=#08306b>Enable Simultaneous DNN Services Based on Deterministic Operator Overlap and Precise Latency Prediction</font></b>  
-                <br>Weihao Cui, Han Zhao, Quan Chen, Ningxin Zheng, Jingwen Leng, <b>Jieru Zhao</b>, Chao Li, Minyi Guo,
-                <br> in <i>The International Conference for High Performance Computing, Networking, Storage, and Analysis</i>, 2021.
-                <br><b><font color=#DC143C>Best Paper Finalist</font></b>
-            </li> 
-            <li>
-                <b><font color=#4682B4>[ICCAD 2021]</font></b> <b><font color=#08306b>AMF-Placer: High-Performance Analytical Mixed-size Placer for FPGA</font></b>  
-                <br>Tingyuan Liang, Gengjie Chen, <b>Jieru Zhao</b>, Sharad Sinha, Wei Zhang,
-                <br> in <i>IEEE/ACM International Conference on Computer-Aided Design</i>, 2021. 
-            </li> 
-            <li>
-                <b><font color=#4682B4>[FPL 2020]</font></b> <b><a href="https://arxiv.org/abs/2006.03250" target="_blank">FP-Stereo: Hardware-Efficient Stereo Vision for Embedded Applications</a></b> 
-                <br><b>Jieru Zhao</b>, Tingyuan Liang, Liang Feng, Wenchao Ding, Sharad Sinha, Wei Zhang and Shaojie Shen,
-                <br> in <i>IEEE International Conference on Field Programmable Logic and Applications</i>, 2020. (long oral presentation, acceptance rate: 24/158=15.2%)
-                <br> [<a href="camera_ready/zhao_fpl20.pdf" target="_blank">Paper</a>] [<a href="https://github.com/zjru/FP-Stereo" target="_blank">Code</a>]
-            </li> 
-            <li>
-                <b><font color=#4682B4>[ASP-DAC 2020]</font></b> <b><a href="https://ieeexplore.ieee.org/document/9045442" target="_blank">HL-Pow: A Learning-Based Power Modeling Framework for High-Level Synthesis</a></b>
-                <br>Zhe Lin, <b>Jieru Zhao</b>, Sharad Sinha and Wei Zhang, 
-                <br>in <i>IEEE Asia and South Pacific Design Automation Conference</i>, 2020. (acceptance rate: 86/250=34.4%)
-                <br>[<a href="camera_ready/lin_aspdac20.pdf" target="_blank">Paper</a>] [<a href="slides/ASPDAC_HL-Pow.pdf" target="_blank">Slides</a>]                
-            </li>                      
+        function markAttendance(student, isPresent) {
+            // 找到学生在表格中的行
+            for (var i = 1; i < table.rows.length; i++) {
+                if (table.rows[i].cells[1].innerHTML == student) {
+                    // 记录出勤情况
+                    table.rows[i].cells[2].innerHTML = isPresent ? "出席" : "缺席";
+                    break;
+                }
+            }
+        }
+        
+        //查找
+        function searchStudent() {
+            var student = document.getElementById("studentName").value;
+            var found = false;
+            for (var i = 1; i < table.rows.length; i++) {
+                if (table.rows[i].cells[1].innerHTML == student) {
+                    currentStudent = student;
+                    var utterance = new SpeechSynthesisUtterance(currentStudent);
+                    window.speechSynthesis.speak(utterance);
+                    document.getElementById("student").innerHTML = currentStudent;
+                    photo.src = photos[i - 1];
+                    photo.style.display = "block";
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                alert("未找到该学生");
+            }
+        }      
 
-            <li>
-                <b><font color=#4682B4>[TCAD 2019]</font></b> <b><a href="https://ieeexplore.ieee.org/document/8695879" target="_blank">Performance Modeling and Directives Optimization for High-level Synthesis on FPGA</a></b>
-                <br><b>Jieru Zhao</b>, Liang Feng, Sharad Sinha, Wei Zhang, Yun Liang and Bingsheng He,
-                <br>in <i>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</i>, 2019.
-                <br>[<a href="camera_ready/zhao_tcad19.pdf" target="_blank">Paper</a>] [<a href="https://github.com/zjru/COMBA" target="_blank">Code</a>]
-            </li>
-
-            <li>
-                <b><font color=#4682B4>[DAC 2019]</font></b> <b><a href="https://ieeexplore.ieee.org/document/8807006" target="_blank">LAMA: Link-Aware Hybrid Management for Memory Accesses in Emerging CPU-FPGA Platforms</a></b>
-                <br> Liang Feng, <b>Jieru Zhao</b>, Tingyuan Liang, Sharad Sinha and Wei Zhang,
-                <br>in <i>ACM/IEEE Design Automation Conference</i>, 2019. (acceptance rate: 202/1068 = 18.9%)
-                <br>[<a href="camera_ready/feng_DAC19.pdf" target="_blank">Paper</a>]
-            </li>
-
-            <li>
-                <b><font color=#4682B4>[ICCAD 2019]</font></b> <b><a href="https://ieeexplore.ieee.org/document/8942136" target="_blank">Hi-ClockFlow: Multi-Clock Dataflow Automation and Throughput Optimization in High-Level Synthesis</a></b>
-                <br> Tingyuan Liang, <b>Jieru Zhao</b>, Liang Feng, Sharad Sinha and Wei Zhang,
-                <br>in <i>IEEE/ACM International Conference on Computer-Aided Design</i>, 2019. (acceptance rate: 94/394 = 23.9%)
-                <br>[<a href="camera_ready/liang_iccad19.pdf" target="_blank">Paper</a>] [<a href="https://github.com/zslwyuan/Hi-ClockFlow" target="_blank">Code</a>]
-            </li>
-
-            <li>
-                <b><font color=#4682B4>[DATE 2019]</font></b> <b><a href="https://ieeexplore.ieee.org/abstract/document/8714724" target="_blank">Machine Learning Based Routing Congestion Prediction in FPGA High-Level Synthesis</a></b>
-                <br><b>Jieru Zhao</b>, Tingyuan Liang, Sharad Sinha and Wei Zhang,
-                <br>in <i>IEEE Design, Automation and Test in Europe Conference and Exhibition </i>, 2019. (long oral presentation, acceptance rate: 202/834 = 24.2%)
-                <br>[<a href="camera_ready/zhao_DATE19.pdf" target="_blank">Paper</a>] [<a href="slides/DATE_Routing.pdf" target="_blank">Slides</a>]
-            </li> 
-
-            <li>
-                <b><font color=#4682B4>[FPGA 2019]</font></b> <b><a href="https://dl.acm.org/doi/10.1145/3289602.3293973" target="_blank">A Hybrid Data-Consistent Framework for Link-Aware Access Management in Emerging CPU-FPGA Platforms</a></b>
-                <br> Liang Feng, <b>Jieru Zhao</b>, Tingyuan Liang, Sharad Sinha and Wei Zhang,
-                <br>in <i>ACM/SIGDA International Symposium on Field-Programmable Gate Arrays</i>, 2019. 
-                <br><font color="grey">[Poster]</font>
-               <!-- <br>[<a href="camera_ready/Routing_DATE.pdf" target="_blank">Paper</a>] -->
-            </li> 
-
-            <li>
-                <b><font color=#4682B4>[TCAD & CASES 2018]</font></b> <b><a href="https://ieeexplore.ieee.org/document/8493498" target="_blank">Hi-DMM: High-Performance Dynamic Memory Management in High-Level Synthesis</a></b>
-                <br>Tingyuan Liang, <b>Jieru Zhao</b>, Liang Feng, Sharad Sinha and Wei Zhang,
-                <br>in <i>IEEE International Conference on Compilers, Architectures, and Synthesis for Embedded Systems</i>, 2018. (journal-track, acceptance rate: 69/270 = 25.5%)
-                <br>Published in <i>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</i>, 2018. 
-                <br><b><font color=#DC143C>Best Paper Nomination</font></b> 
-                <br>[<a href="camera_ready/liang_cases18.pdf" target="_blank">Paper</a>] [<a href="slides/CASES_Hi-DMM.pdf" target="_blank">Slides</a>] [<a href="https://github.com/zslwyuan/Hi-DMM" target="_blank">Code</a>] 
-            </li>
-
-            <li>
-                <b><font color=#4682B4>[ICCAD 2017]</font></b> <b><a href="https://ieeexplore.ieee.org/document/8203809" target="_blank">COMBA: A Comprehensive Model-Based Analysis Framework for High Level Synthesis of Real Applications</a></b>
-                <br><b>Jieru Zhao</b>, Liang Feng, Sharad Sinha, Wei Zhang, Yun Liang and Bingsheng He,
-                <br>in <i> IEEE/ACM International Conference on Computer-Aided Design</i>, 2017. (acceptance rate: 105/399 = 26.3%)
-                <br><b><font color=#DC143C>Best Paper Award</font></b>
-                <br>[<a href="camera_ready/zhao_iccad17.pdf" target="_blank">Paper</a>] [<a href="slides/ICCAD_COMBA.pdf" target="_blank">Slides</a>] [<a href="https://github.com/zjru/COMBA" target="_blank">Code</a>]
-            </li> 
-        </ol>
-        <hr class="new">
-    </div>
- 
-
-    <div class="content link" name='Links'>
-        <div class="title">Some Links</div>
-        <ul>
-            
-            <li>
-                Welcome to visit our team website:
-                <b><a href="http://epcc.sjtu.edu.cn/" target="_blank">Emerging Parallel Computing Center (EPCC)</a></b>.
-            </li>            
-            <li>My husband Dr. Wenchao Ding is working on perception, prediction, decision-making and motion planning for autonomous driving. 
-                Check out <b><a href="https://wenchaoding.github.io/" target="_blank">his webpage</a></b>.
-            </li>
-        </ul>
-    </div> 
-
-    <div class="content footer">
-        Last updated on <b><font color=#008B8B>July, 2023</font></b> by Jieru.
-    </div>
+    </script>
 </body>
 </html>
