@@ -3,12 +3,12 @@
 <head>
     <title>软件工程实践大作业</title>
     <link rel="icon" href="./images/logo.png">
-    <style>
+    <style> 
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #ffffff;
         }
         h2 {
             background-color: #460099;
@@ -17,12 +17,21 @@
             margin: 0;
             text-align: center;
         }
+        #searchBox {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            padding: 20px;
+        }
+        #searchName, #searchButton {
+            display: inline-block;
+        }
         #student {
-            margin: 20px 0;
+            margin: 20px;
             font-size: 20px;
             text-align: center;
         }
-        #studentName {
+        #searchName {
             display: inline-block;
             width: 200px; 
             height: 30px; 
@@ -32,29 +41,15 @@
             font-size: 16px;  
         }
 
-        #searchBox {
+
+        .button1 {
             position: absolute;
-            top: 30px;
-            right: 50px;
+            top: 50px;
+            left: 500px;
             padding: 20px;
         }
-        #searchStudent {
-            background-color: #007BFF;  
-            color: #fff;  
-            border: none;  
-            border-radius: 5px;  
-            padding: 5px 10px;  
-            font-size: 16px;  
-            cursor: pointer;  
-        }
 
-        #searchStudent:hover {
-            background-color: #0056b3;  
-        }
-        #studentName, #searchButton {
-            display: inline-block;
-        }
-        button {
+        .but1 {
             display: block;
             width: 200px;
             height: 40px;
@@ -63,17 +58,57 @@
             color: #fff;
             background-color: #460099;
             border: none;
-            border-radius: 5px;
+            border-radius: 20px;
             cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
         }
-        #searchButton {
-            width: 90px;  
-            height: 30px;  
+        .but1:hover {
+            font-size: 22px;
         }
-        button:hover {
-            background-color: #0056b3;
+        .button2 {
+            position: absolute;
+            top: 50px;
+            left: 800px;
+            padding: 20px;
         }
+
+        .but2 {
+            display: block;
+            width: 200px;
+            height: 40px;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+        }
+        .but2:hover {
+            font-size: 22px;
+        }
+
+        .but3 {
+            width: 120px;  
+            height: 40px;  
+            display: block;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+        }
+        .but3:hover {
+            font-size: 20px;
+        }
+
         table {
+            position: absolute;
+            top: 400px;
             width: 100%;
             margin-bottom: 20px;
             border-collapse: collapse;
@@ -92,41 +127,70 @@
             vertical-align: middle; 
         }
         img {
-            display: none;
+            position: absolute;
+            top: 70px;
+            left: 100px;
+            display: flex;
             margin: 10px auto;
-            border-radius: 50%;
-
+            border-radius: 25%;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.5),-10px -10px 20px rgba(255,255,255,1)
+        }
+        p{ 
+            position: absolute;
+            top: 40px;
+            left: 175px;
+            display: flex;   
         }
     </style>
 </head>
 <body>
     <h2>软件工程实践大作业——课堂点名软件</h2>
-    <button onclick="callName()">点名</button>
-    <button onclick="markAttendance(currentStudent, true)">出席</button>
-    <button onclick="markAttendance(currentStudent, false)">缺席</button>
-    <button onclick="exportToXls()">导出</button>
-    <div id="searchBox">
-        <input id="studentName" type="text" placeholder="请输入学生姓名">
-        <button id="searchButton" onclick="searchStudent()">搜索学生</button>
+    <br>
+    <div class="button1">
+        <button class="but1" onclick="callName()">点名</button>
+        <button class="but1" onclick="markAttendance(currentStudent, 1)">出席</button>
+        <button class="but1" onclick="markAttendance(currentStudent, 2)">缺席</button>
+        <button class="but1" onclick="markAttendance(currentStudent, 3)">请假</button>
+        <button class="but1" onclick="markAttendance(currentStudent, 4)">迟到</button>
+        <button class="but1" onclick="exportToXls()">导出</button>
     </div>
+    
+    <div class="button2">
+        <button class="but2" onclick="callName()">随机点名</button>
+        <button class="but2" onclick="markAttendance(currentStudent, 1)">优秀</button>
+        <button class="but2" onclick="markAttendance(currentStudent, 2)">良好</button>
+        <button class="but2" onclick="markAttendance(currentStudent, 3)">一般</button>
+        <button class="but2" onclick="markAttendance(currentStudent, 4)">较差</button>
+        <button class="but2" onclick="exportToXls()">早退</button>
+    </div>
+
+
+
+    <div id="searchBox">
+        <input id="searchName" type="text" placeholder="请输入学生姓名">
+        <button class="but3" id="searchButton" onclick="searchStudent()">搜索学生</button>
+    </div>
+
     <p id="student"></p>
+
+
+    <img id="photo" src="" alt="没有找到照片" width="250" height="250" style="display: flex; margin: 30px auto;">
     <table id="attendance">
         <tr>
             <th>学号</th>
             <th>学生姓名</th>
             <th>出勤情况</th>
+            <th>回答情况</th>
         </tr>
-    <img id="photo" src="" alt="学生照片" width="200" height="200" style="display: none; margin: 10px auto;">
-    
-    </table>
 
-    <script>
+    </table>
+  <script>
         var date =new Date();
         var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
         var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
         var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
          "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
-        var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "学生4.jpg", "学生5.jpg"];
+        var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "images/张世坤.jpg", "images/张世坤.jpg"];
         var photo = document.getElementById("photo");
         var current = 0;
         var currentStudent = "";
@@ -137,13 +201,14 @@
             var row = table.insertRow(-1);
             row.insertCell(0).innerHTML = studentIds[i];
             row.insertCell(1).innerHTML = students[i];
-            row.insertCell(2).innerHTML = "未点名";
+            row.insertCell(2).innerHTML = "未记录";
+            row.insertCell(3).innerHTML = "未记录";
         }
 
         //导出出勤表
         function exportToXls() {
             // 创建一个CSV字符串
-            var csv = '学号，姓名，出勤情况\n';
+            var csv = '学号，姓名，出勤情况，回答情况\n';
             for (var i = 1; i < table.rows.length; i++) {
                 csv += table.rows[i].cells[0].innerHTML + ' ' + table.rows[i].cells[1].innerHTML + ' ' +table.rows[i].cells[2].innerHTML + '\n';
             }
@@ -177,20 +242,28 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        function markAttendance(student, isPresent) {
+        function markAttendance(student, state) {
             // 找到学生在表格中的行
             for (var i = 1; i < table.rows.length; i++) {
                 if (table.rows[i].cells[1].innerHTML == student) {
                     // 记录出勤情况
-                    table.rows[i].cells[2].innerHTML = isPresent ? "出席" : "缺席";
+                    table.rows[i].cells[2].innerHTML = state==1? "出席" : (state==2? "缺席" :(state==3? "请假" : "迟到"));
+                    var attend = new SpeechSynthesisUtterance(state==1? "出席" : (state==2? "缺席" :(state==3? "请假" : "迟到")));
+                    window.speechSynthesis.speak(attend);
                     break;
                 }
             }
         }
         
+
+       function random(max=table.rows.length){
+        var min = 1;
+        var random = Math.floor(Math.random() * (max - min + 1)) + min;
+       }
+
         //查找
         function searchStudent() {
-            var student = document.getElementById("studentName").value;
+            var student = document.getElementById("searchName").value;
             var found = false;
             for (var i = 1; i < table.rows.length; i++) {
                 if (table.rows[i].cells[1].innerHTML == student) {
