@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset='utf-8' /> -->
     <title>软件工程实践大作业</title>
     <link rel="icon" href="./images/logo.png">
     <style> 
         body {
+
+            background-image: url('images/bg.png');
+            background-size: cover;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
         }
         h2 {
             background-color: #460099;
@@ -17,38 +21,32 @@
             margin: 0;
             text-align: center;
         }
-        #searchBox {
-            position: absolute;
-            top: 50px;
-            right: 50px;
-            padding: 20px;
-        }
-        #searchName, #searchButton {
-            display: inline-block;
-        }
         #student {
             margin: 20px;
             font-size: 20px;
             text-align: center;
         }
+    
         #searchName {
+            position: absolute;
+            top: 81.5px;
+            left: 78%;
             display: inline-block;
-            width: 200px; 
-            height: 30px; 
-            padding: 5px;  
+            width: 150px; 
+            height: 35px; 
             border: none;  
-            border-radius: 5px;  
-            font-size: 16px;  
+            border-radius: 10px;  
+            font-size: 16px;
+            box-shadow: 5px 5px 8px rgba(240, 240, 240, 1),-5px -5px 8px rgba(240, 240, 240, 1),5px -5px 8px rgba(240, 240, 240, 1),-5px 5px 8px rgba(240, 240, 240, 1)  
         }
 
 
         .button1 {
             position: absolute;
             top: 50px;
-            left: 500px;
+            left: 31%;
             padding: 20px;
         }
-
         .but1 {
             display: block;
             width: 200px;
@@ -65,13 +63,13 @@
         .but1:hover {
             font-size: 22px;
         }
+
         .button2 {
             position: absolute;
             top: 50px;
-            left: 800px;
+            left: 58%;
             padding: 20px;
         }
-
         .but2 {
             display: block;
             width: 200px;
@@ -90,7 +88,10 @@
         }
 
         .but3 {
-            width: 120px;  
+            position: absolute;
+            top: 70px;
+            left: 88%;
+            width: 80px;  
             height: 40px;  
             display: block;
             margin: 10px auto;
@@ -103,6 +104,26 @@
             box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
         }
         .but3:hover {
+            font-size: 20px;
+        }
+
+        .but4 {
+            position: absolute;
+            top: 130px;
+            left: 88%;
+            width: 80px;  
+            height: 40px;  
+            display: block;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+        }
+        .but4:hover {
             font-size: 20px;
         }
 
@@ -128,8 +149,8 @@
         }
         img {
             position: absolute;
-            top: 70px;
-            left: 100px;
+            top: 80px;
+            left: 7%;
             display: flex;
             margin: 10px auto;
             border-radius: 25%;
@@ -137,39 +158,40 @@
         }
         p{ 
             position: absolute;
-            top: 40px;
-            left: 175px;
+            top: 50px;
+            left: 10.7%;
             display: flex;   
         }
     </style>
 </head>
+
 <body>
     <h2>软件工程实践大作业——课堂点名软件</h2>
     <br>
     <div class="button1">
         <button class="but1" onclick="callName()">点名</button>
-        <button class="but1" onclick="markAttendance(currentStudent, 1)">出席</button>
-        <button class="but1" onclick="markAttendance(currentStudent, 2)">缺席</button>
-        <button class="but1" onclick="markAttendance(currentStudent, 3)">请假</button>
-        <button class="but1" onclick="markAttendance(currentStudent, 4)">迟到</button>
-        <button class="but1" onclick="exportToXls()">导出</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 1)">出席</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 2)">缺席</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 3)">请假</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 4)">迟到</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 5)">早退</button>
     </div>
     
     <div class="button2">
-        <button class="but2" onclick="callName()">随机点名</button>
-        <button class="but2" onclick="markAttendance(currentStudent, 1)">优秀</button>
-        <button class="but2" onclick="markAttendance(currentStudent, 2)">良好</button>
-        <button class="but2" onclick="markAttendance(currentStudent, 3)">一般</button>
-        <button class="but2" onclick="markAttendance(currentStudent, 4)">较差</button>
-        <button class="but2" onclick="exportToXls()">早退</button>
+        <button class="but2" onclick="random()">提问</button>
+        <button class="but2" onclick="markAttendance_2(currentStudent, 1)">优秀</button>
+        <button class="but2" onclick="markAttendance_2(currentStudent, 2)">良好</button>
+        <button class="but2" onclick="markAttendance_2(currentStudent, 3)">一般</button>
+        <button class="but2" onclick="markAttendance_2(currentStudent, 4)">较差</button>
+        <button class="but2" onclick="markAttendance_2(currentStudent, 5)">很差</button>
     </div>
-
-
 
     <div id="searchBox">
-        <input id="searchName" type="text" placeholder="请输入学生姓名">
-        <button class="but3" id="searchButton" onclick="searchStudent()">搜索学生</button>
+        <input id="searchName" type="text" placeholder=" 请输入学生姓名">
+        <button class="but3" id="searchButton" onclick="searchStudent()">搜索</button>
     </div>
+
+    <button class="but4" onclick="exportToXls()">导出</button>
 
     <p id="student"></p>
 
@@ -184,104 +206,138 @@
         </tr>
 
     </table>
-  <script>
-        var date =new Date();
-        var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
-        var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
-        var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
-         "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
-        var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "images/张世坤.jpg", "images/张世坤.jpg"];
-        var photo = document.getElementById("photo");
-        var current = 0;
-        var currentStudent = "";
-
-        // 初始化出勤表格
-        var table = document.getElementById("attendance");
-        for (var i = 0; i < students.length; i++) {
-            var row = table.insertRow(-1);
-            row.insertCell(0).innerHTML = studentIds[i];
-            row.insertCell(1).innerHTML = students[i];
-            row.insertCell(2).innerHTML = "未记录";
-            row.insertCell(3).innerHTML = "未记录";
-        }
-
-        //导出出勤表
-        function exportToXls() {
-            // 创建一个CSV字符串
-            var csv = '学号，姓名，出勤情况，回答情况\n';
-            for (var i = 1; i < table.rows.length; i++) {
-                csv += table.rows[i].cells[0].innerHTML + ' ' + table.rows[i].cells[1].innerHTML + ' ' +table.rows[i].cells[2].innerHTML + '\n';
-            }
-            // 创建一个Blob对象
-            var blob = new Blob([csv], {type: 'data:application/vnd.ms-excel'});
-            // 创建一个可以下载的URL
-            var url = URL.createObjectURL(blob);
-            // 创建一个隐藏的下载链接
-            var link = document.createElement("a");
-            link.href = url;
-            // 获取当前日期
-            link.download = "出勤记录-" + dateString + ".xls";
-            link.style.display = "none";
-            document.body.appendChild(link);
-            // 触发下载
-            link.click();
-            // 移除下载链接w
-            document.body.removeChild(link);
-        }
-
-        function callName() {
-            if (current >= students.length) {
-                current = 0;
-            }
-            currentStudent = students[current];
-            document.getElementById("student").innerHTML = currentStudent;
-            current = current +1;
-            photo.src = photos[current - 1];
-            photo.style.display = "block";
-            var utterance = new SpeechSynthesisUtterance(currentStudent);
-            window.speechSynthesis.speak(utterance);
-        }
-
-        function markAttendance(student, state) {
-            // 找到学生在表格中的行
-            for (var i = 1; i < table.rows.length; i++) {
-                if (table.rows[i].cells[1].innerHTML == student) {
-                    // 记录出勤情况
-                    table.rows[i].cells[2].innerHTML = state==1? "出席" : (state==2? "缺席" :(state==3? "请假" : "迟到"));
-                    var attend = new SpeechSynthesisUtterance(state==1? "出席" : (state==2? "缺席" :(state==3? "请假" : "迟到")));
-                    window.speechSynthesis.speak(attend);
-                    break;
-                }
-            }
-        }
-        
-
-       function random(max=table.rows.length){
-        var min = 1;
-        var random = Math.floor(Math.random() * (max - min + 1)) + min;
-       }
-
-        //查找
-        function searchStudent() {
-            var student = document.getElementById("searchName").value;
-            var found = false;
-            for (var i = 1; i < table.rows.length; i++) {
-                if (table.rows[i].cells[1].innerHTML == student) {
-                    currentStudent = student;
-                    var utterance = new SpeechSynthesisUtterance(currentStudent);
-                    window.speechSynthesis.speak(utterance);
-                    document.getElementById("student").innerHTML = currentStudent;
-                    photo.src = photos[i - 1];
-                    photo.style.display = "block";
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                alert("未找到该学生");
-            }
-        }      
-
-    </script>
 </body>
+
+<script>
+
+    var date =new Date();
+    var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
+    // var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
+    // var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
+    //  "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
+    var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "images/张世坤.jpg", "images/张世坤.jpg"];
+    var photo = document.getElementById("photo");
+    var current = 0;
+    var currentStudent = "";
+
+    // 初始化出勤表格
+    fetch('json/students.json')
+    .then(response => response.json())
+    .then(data => {
+    students = data.students;
+    studentIds = data.studentIds;
+
+    // 初始化出勤表格
+    var table = document.getElementById("attendance");
+    for (var i = 0; i < students.length; i++) {
+    var row = table.insertRow(-1);
+    row.insertCell(0).innerHTML = studentIds[i];
+    row.insertCell(1).innerHTML = students[i];
+    row.insertCell(2).innerHTML = "/";
+    row.insertCell(3).innerHTML = "/";
+    }
+    })
+    .catch(error => console.error('Error:', error));
+
+    //导出出勤表
+    function exportToXls() {
+        // 创建一个CSV字符串
+        var csv = '学号，姓名，出勤情况，回答情况\n';
+        for (var i = 1; i < table.rows.length; i++) {
+            csv += table.rows[i].cells[0].innerHTML + ' ' + table.rows[i].cells[1].innerHTML + ' ' +table.rows[i].cells[2].innerHTML + '\n';
+        }
+        // 创建一个Blob对象
+        var blob = new Blob([csv], {type: 'data:application/vnd.ms-excel'});
+        // 创建一个可以下载的URL
+        var url = URL.createObjectURL(blob);
+        // 创建一个隐藏的下载链接
+        var link = document.createElement("a");
+        link.href = url;
+        // 获取当前日期
+        link.download = "出勤记录-" + dateString + ".xls";
+        link.style.display = "none";
+        document.body.appendChild(link);
+        // 触发下载
+        link.click();
+        // 移除下载链接w
+        document.body.removeChild(link);
+    }
+
+    function callName() {
+        if (current >= students.length) {
+            current = 0;
+        }
+        currentStudent = students[current];
+        document.getElementById("student").innerHTML = currentStudent;
+        current = current +1;
+        photo.src = photos[current - 1];
+        photo.style.display = "block";
+        var utterance = new SpeechSynthesisUtterance(currentStudent);
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function markAttendance_1(student, state_1) {
+        // 找到学生在表格中的行
+        for (var i = 1; i < table.rows.length; i++) {
+            if (table.rows[i].cells[1].innerHTML == student) {
+                // 记录出勤情况
+                table.rows[i].cells[2].innerHTML = state_1==1? "出席" : (state_1==2? "缺席" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退")));
+                var attend = new SpeechSynthesisUtterance(state_1==1? "出席" : (state_1==2? "缺席" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退"))));
+                window.speechSynthesis.speak(attend);
+                break;
+            }
+        }
+    }
+    
+    function markAttendance_2(student, state_2) {
+        // 找到学生在表格中的行
+        for (var i = 1; i < table.rows.length; i++) {
+            if (table.rows[i].cells[1].innerHTML == student) {
+                // 记录出勤情况
+                table.rows[i].cells[3].innerHTML = state_2==1? "优秀" : (state_2==2? "良好" :(state_2==3? "一般" : (state_2==4? "较差" : "很差")));
+                var attend = new SpeechSynthesisUtterance(state_2==1? "优秀" : (state_2==2? "良好" :(state_2==3? "一般" : (state_2==4? "较差" : "很差"))));
+                window.speechSynthesis.speak(attend);
+                break;
+            }
+        }
+    }
+
+   //随机点名 
+   function random(){
+    var min = 0;
+    var max = table.rows.length;
+    var random = Math.floor(Math.random() * (max - min + 1)) + min;
+    current = random;
+    currentStudent = students[current];
+    document.getElementById("student").innerHTML = currentStudent;
+    current = current + 1;
+    photo.src = photos[current - 1];
+    photo.style.display = "block";
+    var random_stu = new SpeechSynthesisUtterance(currentStudent);
+    window.speechSynthesis.speak(random_stu);
+   }
+
+    //查找
+    function searchStudent() {
+        var student = document.getElementById("searchName").value;
+        var found = false;
+        for (var i = 1; i < table.rows.length; i++) {
+            if (table.rows[i].cells[1].innerHTML == student) {
+                currentStudent = student;
+                var utterance = new SpeechSynthesisUtterance(currentStudent);
+                window.speechSynthesis.speak(utterance);
+                document.getElementById("student").innerHTML = currentStudent;
+                photo.src = photos[i - 1];
+                photo.style.display = "block";
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            alert("未找到该学生");
+        }
+    }      
+
+</script>
+
 </html>
