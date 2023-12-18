@@ -211,8 +211,8 @@
     <br>
     <div class="button1">
         <button class="but1" onclick="callName()">点名</button>
-        <button class="but1" onclick="markAttendance_1(currentStudent, 1)">出席</button>
-        <button class="but1" onclick="markAttendance_1(currentStudent, 2)">缺席</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 1)">出勤</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 2)">缺勤</button>
         <button class="but1" onclick="markAttendance_1(currentStudent, 3)">请假</button>
         <button class="but1" onclick="markAttendance_1(currentStudent, 4)">迟到</button>
         <button class="but1" onclick="markAttendance_1(currentStudent, 5)">早退</button>
@@ -357,8 +357,8 @@
         for (var i = 1; i < table.rows.length; i++) {
             if (table.rows[i].cells[1].innerHTML == student) {
                 // 记录出勤情况
-                table.rows[i].cells[2].innerHTML = state_1==1? "出席" : (state_1==2? "缺席" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退")));
-                var attend = new SpeechSynthesisUtterance(state_1==1? "出席" : (state_1==2? "缺席" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退"))));
+                table.rows[i].cells[2].innerHTML = state_1==1? "出勤" : (state_1==2? "缺勤" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退")));
+                var attend = new SpeechSynthesisUtterance(state_1==1? "出勤" : (state_1==2? "缺勤" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退"))));
                 window.speechSynthesis.speak(attend);
                 break;
             }
