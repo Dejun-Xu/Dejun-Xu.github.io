@@ -259,11 +259,13 @@
     var studentsid = [];
     var studentsphoto = [];
     var filename = [];
+    var selected = 0;
 
     function select_class_1(){
     current = 0;
     var utterance = new SpeechSynthesisUtterance('一班学生点名');
     window.speechSynthesis.speak(utterance);
+    selected = 1;
     for(var i = table.rows.length - 1; i > 0; i--)
     {
     table.deleteRow(i);
@@ -291,6 +293,7 @@
     current = 0;
     var utterance = new SpeechSynthesisUtterance('二班学生点名');
     window.speechSynthesis.speak(utterance);
+    selected = 1;
     for(var i = table.rows.length - 1; i > 0; i--)
     {
     table.deleteRow(i);
@@ -329,7 +332,8 @@
         }
 
     function callName() {
-        if (current >= students.length) {
+    if(selected == 1){
+    if (current >= students.length) {
             current = 0;
         }
         currentStudent = students[current];
@@ -339,6 +343,13 @@
         photo.style.display = "block";
         var utterance = new SpeechSynthesisUtterance(currentStudent);
         window.speechSynthesis.speak(utterance);
+        }        
+        else {
+        var utterance = new SpeechSynthesisUtterance('请选择班级');
+        window.speechSynthesis.speak(utterance);
+        photo.src = "images/lanjing.png";
+        alert("请选择班级");
+        }
     }
 
     function markAttendance_1(student, state_1) {
@@ -369,6 +380,7 @@
 
    //随机点名 
    function random(){
+    if(selected==1){
     var min = 0;
     var max = table.rows.length-1;
     // var random = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -381,6 +393,13 @@
     photo.style.display = "block";
     var random_stu = new SpeechSynthesisUtterance(currentStudent);
     window.speechSynthesis.speak(random_stu);
+    }
+    else {
+    var utterance = new SpeechSynthesisUtterance('请选择班级');
+    window.speechSynthesis.speak(utterance);
+    photo.src = "images/lanjing.png";
+    alert("请选择班级");
+    }
    }
 
     //查找
