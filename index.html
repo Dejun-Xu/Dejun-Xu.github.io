@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <meta charset='utf-8' /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
     <title>软件工程实践大作业</title>
     <link rel="icon" href="./images/logo.png">
     <style> 
         body {
-
             background-image: url('images/bg.png');
             background-size: cover;
             font-family: Arial, sans-serif;
@@ -30,21 +31,21 @@
         #searchName {
             position: absolute;
             top: 81.5px;
-            left: 78%;
+            right: 14%;
             display: inline-block;
-            width: 150px; 
+            width: 140px; 
             height: 35px; 
             border: none;  
             border-radius: 10px;  
             font-size: 16px;
-            box-shadow: 5px 5px 8px rgba(240, 240, 240, 1),-5px -5px 8px rgba(240, 240, 240, 1),5px -5px 8px rgba(240, 240, 240, 1),-5px 5px 8px rgba(240, 240, 240, 1)  
+            box-shadow: 5px 5px 4px rgba(240, 240, 240, 1),-5px -5px 4px rgba(240, 240, 240, 1),5px -5px 4px rgba(240, 240, 240, 1),-5px 5px 4px rgba(240, 240, 240, 1)  
         }
 
 
         .button1 {
             position: absolute;
             top: 50px;
-            left: 31%;
+            left: 30%;
             padding: 20px;
         }
         .but1 {
@@ -67,7 +68,7 @@
         .button2 {
             position: absolute;
             top: 50px;
-            left: 58%;
+            right: 30%;
             padding: 20px;
         }
         .but2 {
@@ -90,7 +91,7 @@
         .but3 {
             position: absolute;
             top: 70px;
-            left: 88%;
+            right: 8%;
             width: 80px;  
             height: 40px;  
             display: block;
@@ -110,7 +111,7 @@
         .but4 {
             position: absolute;
             top: 130px;
-            left: 88%;
+            right: 8%;
             width: 80px;  
             height: 40px;  
             display: block;
@@ -124,6 +125,46 @@
             box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
         }
         .but4:hover {
+            font-size: 20px;
+        }
+
+        .but5 {
+            position: absolute;
+            top: 130px;
+            right: 13%;
+            width: 80px;  
+            height: 40px;  
+            display: block;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+        }
+        .but5:hover {
+            font-size: 20px;
+        }
+
+        .but6 {
+            position: absolute;
+            top: 130px;
+            right: 18%;
+            width: 80px;  
+            height: 40px;  
+            display: block;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+        }
+        .but6:hover {
             font-size: 20px;
         }
 
@@ -149,18 +190,18 @@
         }
         img {
             position: absolute;
-            top: 80px;
+            top: 63px;
             left: 7%;
             display: flex;
             margin: 10px auto;
-            border-radius: 25%;
+            border-radius: 50%;
             box-shadow: 10px 10px 20px rgba(0,0,0,0.5),-10px -10px 20px rgba(255,255,255,1)
         }
-        p{ 
+        p { 
             position: absolute;
-            top: 50px;
-            left: 10.7%;
-            display: flex;   
+            top: 180px;
+            left: 48.5%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
@@ -190,21 +231,18 @@
         <input id="searchName" type="text" placeholder=" 请输入学生姓名">
         <button class="but3" id="searchButton" onclick="searchStudent()">搜索</button>
     </div>
-
-    <button class="but4" onclick="exportToXls()">导出</button>
-
+    <button class="but4" onclick="exportToXlsx()">导出</button>
+    <button class="but6" onclick="select_class_1()">一班</button>
+    <button class="but5" onclick="select_class_2()">二班</button>
     <p id="student"></p>
-
-
-    <img id="photo" src="" alt="没有找到照片" width="250" height="250" style="display: flex; margin: 30px auto;">
+    <img id="photo" src="" alt="没有找到照片" width="260" height="260" style="display: flex; margin: 30px auto;">
     <table id="attendance">
         <tr>
             <th>学号</th>
-            <th>学生姓名</th>
+            <th>姓名</th>
             <th>出勤情况</th>
             <th>回答情况</th>
         </tr>
-
     </table>
 </body>
 
@@ -212,55 +250,83 @@
 
     var date =new Date();
     var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
-    var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
-    var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
-     "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
-    var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "images/张世坤.jpg", "images/张世坤.jpg"];
     var photo = document.getElementById("photo");
+    photo.src = "images/lanjing.png";
     var current = 0;
     var currentStudent = "";
-
     var table = document.getElementById("attendance");
-    //初始化出勤表格
-    fetch('json/students.json')
+    var students = [];
+    var studentsid = [];
+    var studentsphoto = [];
+    var filename = [];
+
+    function select_class_1(){
+    current = 0;
+    var utterance = new SpeechSynthesisUtterance('一班学生点名');
+    window.speechSynthesis.speak(utterance);
+    for(var i = table.rows.length - 1; i > 0; i--)
+    {
+    table.deleteRow(i);
+    }
+    fetch('json/students1.json')
     .then(response => response.json())
     .then(data => {
     students = data.students;
-    studentIds = data.studentIds;
+    studentsid = data.studentsid;
+    studentsphoto = data.studentsphoto;
     //初始化出勤表格
     for (var i = 0; i < students.length; i++) {
     var row = table.insertRow(-1);
-    row.insertCell(0).innerHTML = studentIds[i];
+    row.insertCell(0).innerHTML = studentsid[i];
     row.insertCell(1).innerHTML = students[i];
-    row.insertCell(2).innerHTML = "/";
-    row.insertCell(3).innerHTML = "/";
+    row.insertCell(2).innerHTML = " ";
+    row.insertCell(3).innerHTML = " ";
     }
     })
     .catch(error => console.error('Error:', error));
-
-    //导出出勤表
-    function exportToXls() {
-        // 创建一个CSV字符串
-        var csv = '学号，姓名，出勤情况，回答情况\n';
-        for (var i = 1; i < table.rows.length; i++) {
-            csv += table.rows[i].cells[0].innerHTML + ' ' + table.rows[i].cells[1].innerHTML + ' ' +table.rows[i].cells[2].innerHTML + '\n';
-        }
-        // 创建一个Blob对象
-        var blob = new Blob([csv], {type: 'data:application/vnd.ms-excel'});
-        // 创建一个可以下载的URL
-        var url = URL.createObjectURL(blob);
-        // 创建一个隐藏的下载链接
-        var link = document.createElement("a");
-        link.href = url;
-        // 获取当前日期
-        link.download = "出勤记录-" + dateString + ".xls";
-        link.style.display = "none";
-        document.body.appendChild(link);
-        // 触发下载
-        link.click();
-        // 移除下载链接w
-        document.body.removeChild(link);
+    filename = '一班_' + dateString + '.xlsx';
     }
+
+    function select_class_2(){
+    current = 0;
+    var utterance = new SpeechSynthesisUtterance('二班学生点名');
+    window.speechSynthesis.speak(utterance);
+    for(var i = table.rows.length - 1; i > 0; i--)
+    {
+    table.deleteRow(i);
+    }
+    fetch('json/students2.json')
+    .then(response => response.json())
+    .then(data => {
+    students = data.students;
+    studentsid = data.studentsid;
+    studentsphoto = data.studentsphoto;
+    //初始化出勤表格
+    for (var i = 0; i < students.length; i++) {
+    var row = table.insertRow(-1);
+    row.insertCell(0).innerHTML = studentsid[i];
+    row.insertCell(1).innerHTML = students[i];
+    row.insertCell(2).innerHTML = " ";
+    row.insertCell(3).innerHTML = " ";
+    }
+    })
+    .catch(error => console.error('Error:', error));
+    filename = '二班_' + dateString + '.xlsx';
+    }
+
+    function exportToXlsx() {
+        var wb = XLSX.utils.table_to_book(document.querySelector('table'), {sheet:"Sheet JS"});
+        var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+        function s2ab(s) {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        }
+        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), filename);
+        var utterance = new SpeechSynthesisUtterance('已导出');
+        window.speechSynthesis.speak(utterance);
+        }
 
     function callName() {
         if (current >= students.length) {
@@ -269,7 +335,7 @@
         currentStudent = students[current];
         document.getElementById("student").innerHTML = currentStudent;
         current = current +1;
-        photo.src = photos[current - 1];
+        photo.src = studentsphoto[current - 1];
         photo.style.display = "block";
         var utterance = new SpeechSynthesisUtterance(currentStudent);
         window.speechSynthesis.speak(utterance);
@@ -311,7 +377,7 @@
     currentStudent = students[current];
     document.getElementById("student").innerHTML = currentStudent;
     current = current + 1;
-    photo.src = photos[current - 1];
+    photo.src = studentsphoto[current - 1];
     photo.style.display = "block";
     var random_stu = new SpeechSynthesisUtterance(currentStudent);
     window.speechSynthesis.speak(random_stu);
@@ -327,13 +393,15 @@
                 var utterance = new SpeechSynthesisUtterance(currentStudent);
                 window.speechSynthesis.speak(utterance);
                 document.getElementById("student").innerHTML = currentStudent;
-                photo.src = photos[i - 1];
+                photo.src = studentsphoto[i - 1];
                 photo.style.display = "block";
                 found = true;
                 break;
             }
         }
         if (!found) {
+            var utterance = new SpeechSynthesisUtterance('未找到该学生，请检查输入');
+            window.speechSynthesis.speak(utterance);
             alert("未找到该学生");
         }
     }      
