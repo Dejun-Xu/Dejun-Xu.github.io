@@ -212,23 +212,22 @@
 
     var date =new Date();
     var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
-    // var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
-    // var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
-    //  "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
+    var students = ["学生1", "学生2", "学生3", "学生4", "学生5","学生6", "学生7", "学生8", "学生9", "学生10","学生11", "学生12", "学生13", "学生14", "学生15"];
+    var studentIds = ["502023230001", "502023230002", "502023230003", "502023230004", "502023230005","502023230006",
+     "502023230007", "502023230008", "502023230009", "502023230010","502023230011", "502023230012", "502023230013", "502023230014", "502023230015"];
     var photos = ["images/徐德军.jpg", "images/王凯.jpg", "images/张世坤.jpg", "images/张世坤.jpg", "images/张世坤.jpg"];
     var photo = document.getElementById("photo");
     var current = 0;
     var currentStudent = "";
 
-    // 初始化出勤表格
+    var table = document.getElementById("attendance");
+    //初始化出勤表格
     fetch('json/students.json')
     .then(response => response.json())
     .then(data => {
     students = data.students;
     studentIds = data.studentIds;
-
-    // 初始化出勤表格
-    var table = document.getElementById("attendance");
+    //初始化出勤表格
     for (var i = 0; i < students.length; i++) {
     var row = table.insertRow(-1);
     row.insertCell(0).innerHTML = studentIds[i];
@@ -305,8 +304,9 @@
    //随机点名 
    function random(){
     var min = 0;
-    var max = table.rows.length;
-    var random = Math.floor(Math.random() * (max - min + 1)) + min;
+    var max = table.rows.length-1;
+    // var random = Math.floor(Math.random() * (max - min + 1)) + min;
+    var random = Math.floor(Math.random()*max);
     current = random;
     currentStudent = students[current];
     document.getElementById("student").innerHTML = currentStudent;
