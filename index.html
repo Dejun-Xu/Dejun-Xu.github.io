@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <meta charset='utf-8' />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>软件工程实践大作业</title>
     <link rel="icon" href="./images/logo.png">
-    <style> 
+    <style>
         body {
             background-image: url('images/bg.png');
             background-size: cover;
@@ -15,6 +16,7 @@
             margin: 0;
             padding: 0;
         }
+
         h2 {
             background-color: #460099;
             color: #fff;
@@ -22,35 +24,37 @@
             margin: 0;
             text-align: center;
         }
+
         #student {
             margin: 20px;
-            font-size: 20px;
+            font-size: 30px;
             text-align: center;
         }
-    
+
         #searchName {
             position: absolute;
             top: 81.5px;
-            right: 14%;
+            right: 10%;
             display: inline-block;
-            width: 140px; 
-            height: 35px; 
-            border: none;  
-            border-radius: 10px;  
+            width: 140px;
+            height: 35px;
+            border: none;
+            border-radius: 10px;
             font-size: 16px;
-            box-shadow: 5px 5px 4px rgba(240, 240, 240, 1),-5px -5px 4px rgba(240, 240, 240, 1),5px -5px 4px rgba(240, 240, 240, 1),-5px 5px 4px rgba(240, 240, 240, 1)  
+            box-shadow: 5px 5px 4px rgba(240, 240, 240, 1), -5px -5px 4px rgba(240, 240, 240, 1), 5px -5px 4px rgba(240, 240, 240, 1), -5px 5px 4px rgba(240, 240, 240, 1)
         }
 
 
         .button1 {
             position: absolute;
-            top: 50px;
-            left: 30%;
+            top: 60%;
+            right: 28%;
             padding: 20px;
         }
+
         .but1 {
             display: block;
-            width: 200px;
+            width: 240px;
             height: 40px;
             margin: 10px auto;
             font-size: 18px;
@@ -59,21 +63,23 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
         }
+
         .but1:hover {
             font-size: 22px;
         }
 
         .button2 {
             position: absolute;
-            top: 50px;
-            right: 30%;
+            top: 60%;
+            right: 8%;
             padding: 20px;
         }
+
         .but2 {
             display: block;
-            width: 200px;
+            width: 240px;
             height: 40px;
             margin: 10px auto;
             font-size: 18px;
@@ -82,8 +88,9 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
         }
+
         .but2:hover {
             font-size: 22px;
         }
@@ -91,9 +98,9 @@
         .but3 {
             position: absolute;
             top: 70px;
-            right: 8%;
-            width: 80px;  
-            height: 40px;  
+            right: 4%;
+            width: 80px;
+            height: 40px;
             display: block;
             margin: 10px auto;
             font-size: 18px;
@@ -102,18 +109,23 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
         }
+
         .but3:hover {
             font-size: 20px;
         }
 
-        .but4 {
+        .button4 {
             position: absolute;
-            top: 130px;
-            right: 8%;
-            width: 80px;  
-            height: 40px;  
+            top: 12%;
+            right: 3%;
+            padding: 20px;
+        }
+
+        .but4 {
+            width: 80px;
+            height: 40px;
             display: block;
             margin: 10px auto;
             font-size: 18px;
@@ -122,19 +134,25 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
         }
+
         .but4:hover {
             font-size: 20px;
         }
 
-        .but5 {
+
+        .button5 {
             position: absolute;
-            top: 130px;
-            right: 13%;
-            width: 80px;  
-            height: 40px;  
+            top: 45%;
+            right: 28%;
+            padding: 20px;
+        }
+
+        .but5 {
             display: block;
+            width: 240px;
+            height: 40px;
             margin: 10px auto;
             font-size: 18px;
             color: #fff;
@@ -142,18 +160,49 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
         }
+
         .but5:hover {
-            font-size: 20px;
+            font-size: 22px;
+        }
+
+        .button6 {
+            position: absolute;
+            top: 45%;
+            right: 8%;
+            padding: 20px;
         }
 
         .but6 {
+            display: block;
+            width: 240px;
+            height: 40px;
+            margin: 10px auto;
+            font-size: 18px;
+            color: #fff;
+            background-color: #460099;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
+        }
+
+        .but6:hover {
+            font-size: 22px;
+        }
+
+
+        .button7 {
             position: absolute;
-            top: 130px;
-            right: 18%;
-            width: 80px;  
-            height: 40px;  
+            top: 12%;
+            right: 9%;
+            padding: 20px;
+        }
+
+        .but7 {
+            width: 150px;
+            height: 40px;
             display: block;
             margin: 10px auto;
             font-size: 18px;
@@ -162,9 +211,10 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 5px 5px 8px rgba(0,0,0,0.5),-5px -5px 8px rgba(255,255,255,1)
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 1)
         }
-        .but6:hover {
+
+        .but7:hover {
             font-size: 20px;
         }
 
@@ -175,49 +225,68 @@
             margin-bottom: 20px;
             border-collapse: collapse;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ccc;
             text-align: left;
             padding: 10px;
-            text-align: center; 
-            vertical-align: middle; 
+            text-align: center;
+            vertical-align: middle;
         }
+
         th {
-            background-color: #460099;
-            color: #fff;
-            text-align: center; 
-            vertical-align: middle; 
+
+            color: #000000;
+            text-align: center;
+            vertical-align: middle;
         }
+
         img {
             position: absolute;
-            top: 63px;
-            left: 7%;
+            top: 6%;
+            right: 20%;
             display: flex;
             margin: 10px auto;
             border-radius: 50%;
-            box-shadow: 10px 10px 20px rgba(0,0,0,0.5),-10px -10px 20px rgba(255,255,255,1)
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), -10px -10px 20px rgba(255, 255, 255, 1)
         }
-        p { 
+
+        .button9 {
             position: absolute;
-            top: 180px;
-            left: 48.5%;
-            transform: translate(-50%, -50%);
+            top: 36%;
+            right: 23%;
+            text-align: left;
+        }
+
+
+        th {
+            width: 300px;
+        }
+
+        #attendance {
+            position: fixed;
+            top: 52px;
+            left: 0;
+            width: calc(50% - 1px);
+            display: block;
+            overflow: auto;
+            max-height: 95%;
         }
     </style>
 </head>
 
 <body>
     <h2>软件工程实践大作业——课堂点名软件</h2>
-    <br>
     <div class="button1">
-        <button class="but1" onclick="callName()">点名</button>
-        <button class="but1" onclick="markAttendance_1(currentStudent, 1)">出勤</button>
-        <button class="but1" onclick="markAttendance_1(currentStudent, 2)">缺勤</button>
+        <button class="but1" onclick="callname()">开始点名</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 1)">出席</button>
+        <button class="but1" onclick="markAttendance_1(currentStudent, 2)">缺席</button>
         <button class="but1" onclick="markAttendance_1(currentStudent, 3)">请假</button>
         <button class="but1" onclick="markAttendance_1(currentStudent, 4)">迟到</button>
         <button class="but1" onclick="markAttendance_1(currentStudent, 5)">早退</button>
     </div>
-    
+
     <div class="button2">
         <button class="but2" onclick="random()">提问</button>
         <button class="but2" onclick="markAttendance_2(currentStudent, 1)">优秀</button>
@@ -231,10 +300,36 @@
         <input id="searchName" type="text" placeholder=" 请输入学生姓名">
         <button class="but3" id="searchButton" onclick="searchStudent()">搜索</button>
     </div>
-    <button class="but4" onclick="exportToXlsx()">导出</button>
-    <button class="but6" onclick="select_class_1()">一班</button>
-    <button class="but5" onclick="select_class_2()">二班</button>
-    <p id="student"></p>
+
+    <div class="button4">
+        <button class="but4" onclick="exportToXlsx()">导出</button>
+    </div>
+
+    <div class="button5">
+        <button class="but5" onclick="select_class1()">云端名单1</button>
+        <button class="but5" onclick="select_class3()">云端名单3</button>
+    </div>
+
+    <div class="button6">
+        <button class="but6" onclick="select_class2()">云端名单2</button>
+        <button class="but6" onclick="select_class4()">云端名单4</button>
+    </div>
+
+    <div class="button7">
+        <input id="fileInput" type="file" style="position: absolute; opacity: 0;" />
+        <label for="fileInput" class="custom-fileInput">
+            <p style="text-align: center; line-height: 40px" class="but7"><span>本地名单</span></p>
+        </label>
+    </div>
+
+    <div class="button8">
+        <button class="but8" onclick="showname()"></button>
+    </div>
+
+    <div class="button9">
+        <p id="student"></p>
+    </div>
+
     <img id="photo" src="" alt="没有找到照片" width="260" height="260" style="display: flex; margin: 30px auto;">
     <table id="attendance">
         <tr>
@@ -243,12 +338,148 @@
             <th>出勤情况</th>
             <th>回答情况</th>
         </tr>
+        <tbody>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>请选择名单</td>
+                <td>请选择名单</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+
+        </tbody>
     </table>
+
 </body>
 
 <script>
 
-    var date =new Date();
+    var date = new Date();
     var dateString = date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
     var photo = document.getElementById("photo");
     photo.src = "images/lanjing.png";
@@ -259,171 +490,284 @@
     var studentsid = [];
     var studentsphoto = [];
     var filename = [];
-    var selected = 0;
+    var a = 0;
+    var b = 0;
+    var c = 0;
 
-    function select_class_1(){
-    current = 0;
-    var utterance = new SpeechSynthesisUtterance('一班学生点名');
-    window.speechSynthesis.speak(utterance);
-    selected = 1;
-    for(var i = table.rows.length - 1; i > 0; i--)
-    {
-    table.deleteRow(i);
-    }
-    fetch('json/students1.json')
-    .then(response => response.json())
-    .then(data => {
-    students = data.students;
-    studentsid = data.studentsid;
-    studentsphoto = data.studentsphoto;
-    //初始化出勤表格
-    for (var i = 0; i < students.length; i++) {
-    var row = table.insertRow(-1);
-    row.insertCell(0).innerHTML = studentsid[i];
-    row.insertCell(1).innerHTML = students[i];
-    row.insertCell(2).innerHTML = " ";
-    row.insertCell(3).innerHTML = " ";
-    }
+    const fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        var utterance = new SpeechSynthesisUtterance('已导入');
+        window.speechSynthesis.speak(utterance);
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+        reader.onload = (event) => {
+            const json = JSON.parse(event.target.result);
+            students = json.students;
+            studentsid = json.studentsid;
+            studentsphoto = json.studentsphoto;
+            for (var i = 0; i < students.length; i++) {
+                var row = table.insertRow(-1);
+                row.insertCell(0).innerHTML = studentsid[i];
+                row.insertCell(1).innerHTML = students[i];
+                row.insertCell(2).innerHTML = " ";
+                row.insertCell(3).innerHTML = " ";
+            }
+        };
+        reader.readAsText(file);
+        c = 1;
+        filename = '出勤记录.' + dateString + '.xlsx';
     })
-    .catch(error => console.error('Error:', error));
-    filename = '一班_' + dateString + '.xlsx';
+
+
+    function select_class1() {
+        var utterance = new SpeechSynthesisUtterance('云端名单1');
+        window.speechSynthesis.speak(utterance);
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+        fetch('json/students1.json')
+            .then(response => response.json())
+            .then(data => {
+                students = data.students;
+                studentsid = data.studentsid;
+                studentsphoto = data.studentsphoto;
+                //初始化出勤表格
+                for (var i = 0; i < students.length; i++) {
+                    var row = table.insertRow(-1);
+                    row.insertCell(0).innerHTML = studentsid[i];
+                    row.insertCell(1).innerHTML = students[i];
+                    row.insertCell(2).innerHTML = " ";
+                    row.insertCell(3).innerHTML = " ";
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        a = 1;
+        filename = '名单1出勤记录.' + dateString + '.xlsx';
     }
 
-    function select_class_2(){
-    current = 0;
-    var utterance = new SpeechSynthesisUtterance('二班学生点名');
-    window.speechSynthesis.speak(utterance);
-    selected = 1;
-    for(var i = table.rows.length - 1; i > 0; i--)
-    {
-    table.deleteRow(i);
+    function select_class2() {
+        var utterance = new SpeechSynthesisUtterance('云端名单2');
+        window.speechSynthesis.speak(utterance);
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+        fetch('json/students2.json')
+            .then(response => response.json())
+            .then(data => {
+                students = data.students;
+                studentsid = data.studentsid;
+                studentsphoto = data.studentsphoto;
+                for (var i = 0; i < students.length; i++) {
+                    var row = table.insertRow(-1);
+                    row.insertCell(0).innerHTML = studentsid[i];
+                    row.insertCell(1).innerHTML = students[i];
+                    row.insertCell(2).innerHTML = " ";
+                    row.insertCell(3).innerHTML = " ";
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        b = 1;
+        filename = '名单2出勤记录.' + dateString + '.xlsx';
     }
-    fetch('json/students2.json')
-    .then(response => response.json())
-    .then(data => {
-    students = data.students;
-    studentsid = data.studentsid;
-    studentsphoto = data.studentsphoto;
-    //初始化出勤表格
-    for (var i = 0; i < students.length; i++) {
-    var row = table.insertRow(-1);
-    row.insertCell(0).innerHTML = studentsid[i];
-    row.insertCell(1).innerHTML = students[i];
-    row.insertCell(2).innerHTML = " ";
-    row.insertCell(3).innerHTML = " ";
+
+    function select_class3() {
+        var utterance = new SpeechSynthesisUtterance('云端名单3');
+        window.speechSynthesis.speak(utterance);
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+        fetch('json/students3.json')
+            .then(response => response.json())
+            .then(data => {
+                students = data.students;
+                studentsid = data.studentsid;
+                studentsphoto = data.studentsphoto;
+                //初始化出勤表格
+                for (var i = 0; i < students.length; i++) {
+                    var row = table.insertRow(-1);
+                    row.insertCell(0).innerHTML = studentsid[i];
+                    row.insertCell(1).innerHTML = students[i];
+                    row.insertCell(2).innerHTML = " ";
+                    row.insertCell(3).innerHTML = " ";
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        a = 1;
+        filename = '名单3出勤记录.' + dateString + '.xlsx';
     }
-    })
-    .catch(error => console.error('Error:', error));
-    filename = '二班_' + dateString + '.xlsx';
+
+    function select_class4() {
+        var utterance = new SpeechSynthesisUtterance('云端名单4');
+        window.speechSynthesis.speak(utterance);
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+        fetch('json/students4.json')
+            .then(response => response.json())
+            .then(data => {
+                students = data.students;
+                studentsid = data.studentsid;
+                studentsphoto = data.studentsphoto;
+                //初始化出勤表格
+                for (var i = 0; i < students.length; i++) {
+                    var row = table.insertRow(-1);
+                    row.insertCell(0).innerHTML = studentsid[i];
+                    row.insertCell(1).innerHTML = students[i];
+                    row.insertCell(2).innerHTML = " ";
+                    row.insertCell(3).innerHTML = " ";
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        a = 1;
+        filename = '名单4出勤记录.' + dateString + '.xlsx';
     }
 
     function exportToXlsx() {
-        var wb = XLSX.utils.table_to_book(document.querySelector('table'), {sheet:"Sheet JS"});
-        var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+        var wb = XLSX.utils.table_to_book(document.querySelector('table'), { sheet: "Sheet JS" });
+        var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
         function s2ab(s) {
             var buf = new ArrayBuffer(s.length);
             var view = new Uint8Array(buf);
-            for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
             return buf;
         }
-        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), filename);
-        var utterance = new SpeechSynthesisUtterance('已导出');
-        window.speechSynthesis.speak(utterance);
+        saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), filename);
+    }
+
+    function callname() {
+        if ((a | b | c) == 1) {
+            current = 0;
+            currentStudent = students[0];
+            document.getElementById("student").innerHTML = currentStudent;
+            photo.src = studentsphoto[0];
+            photo.style.display = "block";
+            var startstudent = new SpeechSynthesisUtterance(students[current]);
+            window.speechSynthesis.speak(startstudent);
+            markAttendance_1(student, state_1);
+        }
+        else {
+            noclass = new SpeechSynthesisUtterance('请选择名单');
+            window.speechSynthesis.speak(noclass);
         }
 
-    function callName() {
-    if(selected == 1){
-    if (current >= students.length) {
-            current = 0;
+    }
+
+    function callName(current) {
+        if ((a | b | c) == 1) {
+            if (current >= students.length) {
+                current = 0;
+            }
+            currentStudent = students[current];
+            document.getElementById("student").innerHTML = currentStudent;
+            current = current + 1;
+            photo.src = studentsphoto[current - 1];
+            photo.style.display = "block";
+            var utterance = new SpeechSynthesisUtterance(currentStudent);
+            window.speechSynthesis.speak(utterance);
         }
-        currentStudent = students[current];
-        document.getElementById("student").innerHTML = currentStudent;
-        current = current +1;
-        photo.src = studentsphoto[current - 1];
-        photo.style.display = "block";
-        var utterance = new SpeechSynthesisUtterance(currentStudent);
-        window.speechSynthesis.speak(utterance);
-        }        
         else {
-        var utterance = new SpeechSynthesisUtterance('请选择班级');
-        window.speechSynthesis.speak(utterance);
-        photo.src = "images/lanjing.png";
-        alert("请选择班级");
+            noclass = new SpeechSynthesisUtterance('请选择名单');
+            window.speechSynthesis.speak(noclass);
         }
     }
 
     function markAttendance_1(student, state_1) {
-        // 找到学生在表格中的行
-        for (var i = 1; i < table.rows.length; i++) {
-            if (table.rows[i].cells[1].innerHTML == student) {
-                // 记录出勤情况
-                table.rows[i].cells[2].innerHTML = state_1==1? "出勤" : (state_1==2? "缺勤" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退")));
-                var attend = new SpeechSynthesisUtterance(state_1==1? "出勤" : (state_1==2? "缺勤" :(state_1==3? "请假" : (state_1 ==4? "迟到" : "早退"))));
-                window.speechSynthesis.speak(attend);
-                break;
+        if ((a | b | c) == 1) {
+            if (current >= students.length) {
+                current = 0;
+            }
+            for (var i = 1; i < table.rows.length; i++) {
+                if (table.rows[i].cells[1].innerHTML == student) {
+                    // 记录出勤情况
+                    table.rows[i].cells[2].innerHTML = state_1 == 1 ? "出席" : (state_1 == 2 ? "缺席" : (state_1 == 3 ? "请假" : (state_1 == 4 ? "迟到" : "早退")));
+                    var attend = new SpeechSynthesisUtterance(state_1 == 1 ? "出席" : (state_1 == 2 ? "缺席" : (state_1 == 3 ? "请假" : (state_1 == 4 ? "迟到" : "早退"))));
+                    <!-- window.speechSynthesis.speak(attend); -->
+                    current = current + 1;
+                    callName(current);
+                    break;
+                }
             }
         }
+        else {
+            noclass = new SpeechSynthesisUtterance('请选择名单');
+            window.speechSynthesis.speak(noclass);
+        }
     }
-    
+
     function markAttendance_2(student, state_2) {
-        // 找到学生在表格中的行
-        for (var i = 1; i < table.rows.length; i++) {
-            if (table.rows[i].cells[1].innerHTML == student) {
-                // 记录出勤情况
-                table.rows[i].cells[3].innerHTML = state_2==1? "优秀" : (state_2==2? "良好" :(state_2==3? "一般" : (state_2==4? "较差" : "很差")));
-                var attend = new SpeechSynthesisUtterance(state_2==1? "优秀" : (state_2==2? "良好" :(state_2==3? "一般" : (state_2==4? "较差" : "很差"))));
-                window.speechSynthesis.speak(attend);
-                break;
+        if ((a | b | c) == 1) {
+            if (current >= students.length) {
+                current = 0;
             }
+            for (var i = 1; i < table.rows.length; i++) {
+                if (table.rows[i].cells[1].innerHTML == student) {
+                    table.rows[i].cells[3].innerHTML = state_2 == 1 ? "优秀" : (state_2 == 2 ? "良好" : (state_2 == 3 ? "一般" : (state_2 == 4 ? "较差" : "很差")));
+                    var attend = new SpeechSynthesisUtterance(state_2 == 1 ? "优秀" : (state_2 == 2 ? "良好" : (state_2 == 3 ? "一般" : (state_2 == 4 ? "较差" : "很差"))));
+
+                    break;
+                }
+            }
+        }
+        else {
+            noclass = new SpeechSynthesisUtterance('请选择名单');
+            window.speechSynthesis.speak(noclass);
         }
     }
 
-   //随机点名 
-   function random(){
-    if(selected==1){
-    var min = 0;
-    var max = table.rows.length-1;
-    // var random = Math.floor(Math.random() * (max - min + 1)) + min;
-    var random = Math.floor(Math.random()*max);
-    current = random;
-    currentStudent = students[current];
-    document.getElementById("student").innerHTML = currentStudent;
-    current = current + 1;
-    photo.src = studentsphoto[current - 1];
-    photo.style.display = "block";
-    var random_stu = new SpeechSynthesisUtterance(currentStudent);
-    window.speechSynthesis.speak(random_stu);
+    function random() {
+        if ((a | b | c) == 1) {
+            if (current >= students.length) {
+                current = 0;
+            }
+            var min = 0;
+            var max = table.rows.length - 1;
+            var random = Math.floor(Math.random() * max);
+            current = random;
+            currentStudent = students[current];
+            document.getElementById("student").innerHTML = currentStudent;
+            current = current + 1;
+            photo.src = studentsphoto[current - 1];
+            photo.style.display = "block";
+            var random_stu = new SpeechSynthesisUtterance(currentStudent);
+            window.speechSynthesis.speak(random_stu);
+        }
+        else {
+            noclass = new SpeechSynthesisUtterance('请选择名单');
+            window.speechSynthesis.speak(noclass);
+        }
     }
-    else {
-    var utterance = new SpeechSynthesisUtterance('请选择班级');
-    window.speechSynthesis.speak(utterance);
-    photo.src = "images/lanjing.png";
-    alert("请选择班级");
-    }
-   }
 
-    //查找
     function searchStudent() {
-        var student = document.getElementById("searchName").value;
-        var found = false;
-        for (var i = 1; i < table.rows.length; i++) {
-            if (table.rows[i].cells[1].innerHTML == student) {
-                currentStudent = student;
-                var utterance = new SpeechSynthesisUtterance(currentStudent);
-                window.speechSynthesis.speak(utterance);
-                document.getElementById("student").innerHTML = currentStudent;
-                photo.src = studentsphoto[i - 1];
-                photo.style.display = "block";
-                found = true;
-                break;
+        if ((a | b | c) == 1) {
+            if (current >= students.length) {
+                current = 0;
+            }
+            var student = document.getElementById("searchName").value;
+            var found = false;
+            for (var i = 1; i < table.rows.length; i++) {
+                if (table.rows[i].cells[1].innerHTML == student) {
+                    currentStudent = student;
+                    var utterance = new SpeechSynthesisUtterance(currentStudent);
+                    window.speechSynthesis.speak(utterance);
+                    document.getElementById("student").innerHTML = currentStudent;
+                    photo.src = studentsphoto[i - 1];
+                    photo.style.display = "block";
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                alert("未找到该学生");
             }
         }
-        if (!found) {
-            var utterance = new SpeechSynthesisUtterance('未找到该学生，请检查输入');
-            window.speechSynthesis.speak(utterance);
-            alert("未找到该学生");
+        else {
+            noclass = new SpeechSynthesisUtterance('请选择班级');
+            window.speechSynthesis.speak(noclass);
         }
-    }      
+    }
 
 </script>
 
